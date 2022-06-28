@@ -5,6 +5,8 @@ import PropTypes from "prop-types";
 // import {FontAwesomeIcons} from  "@fortawesome/fontawesome";
 // import {FaRegEdit} from  "@fortawesome/free-solid-svg-icons";
 import styles from "./UserComponent.module.css";
+import { faTrash, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const User = (props) => {
   const { user, deleteUser, editUser, saveUser, selectOne } = props;
@@ -63,11 +65,18 @@ const User = (props) => {
             className="fas fa-save"
           ></i>
         ) : (
-          <i onClick={() => editUser(user.id)} className="FaRegEdit"></i>
-          
+          // <i onClick={() => editUser(user.id)} className="FaRegEdit"></i>
+          <FontAwesomeIcon
+            icon={faPenToSquare}
+            className={(styles.fontIcons, styles.edit)}
+            onClick={() => editUser(user.id)}
+          ></FontAwesomeIcon>
         )}
-
-        <i onClick={() => deleteUser(user.id)} className="fas fa-trash-alt"></i>
+        <FontAwesomeIcon
+          onClick={() => deleteUser(user.id)}
+          icon={faTrash}
+          className={styles.fontIcons}
+        ></FontAwesomeIcon>
       </td>
     </tr>
   );
@@ -78,7 +87,7 @@ User.propTypes = {
   deleteUser: PropTypes.func,
   editUser: PropTypes.func,
   saveUser: PropTypes.func,
-  selectOne: PropTypes.func
+  selectOne: PropTypes.func,
 };
 
 export default User;

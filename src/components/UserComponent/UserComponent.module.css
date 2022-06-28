@@ -28,3 +28,12 @@ label {
   display: inline-block;
   width: 100%;
 }
+
+.fontIcons {
+  border: 0px;
+}
+
+.edit {
+  color: black;
+  border: 0px;
+}
